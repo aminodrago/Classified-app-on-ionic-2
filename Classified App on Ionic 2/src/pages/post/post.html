@@ -1,0 +1,69 @@
+<!--
+  Generated template for the Post page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>post</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Name" #name></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Model #" #modelno></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Used" #used></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Color" #color></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Price" #price></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Description" #descr></ion-input>
+  </ion-item>
+
+  
+
+  <!--<ion-item>
+    <button ion-button full (click)="pickfromgallery()">Upload Picture</button>
+  </ion-item>-->
+
+   <ion-item>
+    <ion-label>Categories</ion-label>
+    <ion-select [(ngModel)]="toppings" multiple="false" cancelText="Nah" okText="Okay!" #cat>
+      <ion-option value="bacon" selected="true">Car</ion-option>
+      <ion-option value="olives">Mobile</ion-option>
+      <ion-option value="xcheese" selected="true">Laptop</ion-option>
+    </ion-select>
+  </ion-item>
+
+<ion-item>
+    <button ion-button full (click)="takepicture()">Upload Picture</button>
+  </ion-item>
+  <ion-item>  <button ion-button full (click)="post(name,modelno,used,color,price,descr,cat)">Post</button>
+</ion-item>
+
+  
+
+</ion-list>
+
+<img [src]="base64Image" *ngIf="base64Image" />
+</ion-content>

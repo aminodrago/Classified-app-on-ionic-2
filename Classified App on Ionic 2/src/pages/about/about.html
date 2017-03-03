@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div padding>
+  <ion-segment [(ngModel)]="cat">
+    <ion-segment-button value="cars">
+      Cars
+    </ion-segment-button>
+    <ion-segment-button value="mobiles">
+      Mobiles
+    </ion-segment-button>
+    <ion-segment-button value="laptops">
+      Laptops
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="cat">
+  <ion-list *ngSwitchCase="'cars'">
+   
+   <ion-item-sliding *ngFor="let ads of carAds">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="{{ads.image}}">
+        </ion-avatar>
+        <h2>{{ads.name}}</h2>
+        <p>Model: {{ads.modelno}} | Color: {{ads.color}} | Price: {{ads.price}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left (click)="carNavigation()">
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        
+      </ion-item-options>
+    </ion-item-sliding>
+    
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'mobiles'">
+    
+    <ion-item-sliding *ngFor="let ads of mobAds">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="{{ads.image}}">
+        </ion-avatar>
+        <h2>{{ads.name}}</h2>
+        <p>Model: {{ads.modelno}} | Color: {{ads.color}} | Price: {{ads.price}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left (click)="mobNavigation()">
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        
+      </ion-item-options>
+    </ion-item-sliding>
+
+    
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'laptops'">
+    
+<ion-item-sliding *ngFor="let ads of lapAds">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="{{ads.image}}">
+        </ion-avatar>
+        <h2>{{ads.name}}</h2>
+        <p>Model: {{ads.modelno}} | Color: {{ads.color}} | Price: {{ads.price}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left (click)="lapNavigation()">
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        
+      </ion-item-options>
+    </ion-item-sliding>
+    
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'mobiles'">
+    
+    <ion-item-sliding *ngFor="let ads of lapAds">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="{{ads.image}}">
+        </ion-avatar>
+        <h2>{{ads.name}}</h2>
+        <p>{{ads.desc}}.</p>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button color="light" icon-left>
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button ion-button color="primary" icon-left>
+          <ion-icon name="text"></ion-icon>
+          Text
+        </button>
+        <button ion-button color="secondary" icon-left>
+          <ion-icon name="call"></ion-icon>
+          Call
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+</div>
+
+</ion-content>

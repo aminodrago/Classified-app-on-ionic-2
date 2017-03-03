@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding >
+  <ion-card *ngFor="let ads of ads | async">
+  <img src="{{ads.image}}" width="100" height="100"/>
+  <ion-card-content>
+
+    <ion-card-title>
+      {{ads.name}}
+      </ion-card-title>
+      <hr>
+      <ion-list>
+
+        <button ion-item>
+      <!--<ion-icon name="medical" item-left></ion-icon>-->
+      <b>Model #</b> {{ads.modelno}}
+    </button>
+
+     <button ion-item>
+      <!--<ion-icon name="cart" item-left></ion-icon>-->
+     <b> Color:</b> {{ads.color}}
+    </button>
+
+    <button ion-item>
+      <!--<ion-icon name="medical" item-left></ion-icon>-->
+      <b>Used:</b> {{ads.used}}
+    </button>
+
+    <button ion-item>
+      <!--<ion-icon name="cafe" item-left></ion-icon>-->
+      <b>Description:</b> {{ads.desc}}
+    </button>
+
+  </ion-list>
+  </ion-card-content>
+
+  <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-left (click)="delete(ads.$key)">
+          <ion-icon name='ios-trash'></ion-icon>
+          Delete
+        </button>
+      </ion-col>
+      
+      <ion-col text-right>
+        <button ion-button clear small color="default" icon-left>
+          <!--<ion-icon name='share-alt'></ion-icon>-->
+          Price: {{ads.price}} Rs 
+        </button>
+      </ion-col>
+    </ion-row>
+</ion-card>
+</ion-content>
